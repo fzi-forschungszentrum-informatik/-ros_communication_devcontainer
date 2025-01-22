@@ -146,7 +146,7 @@ if __name__ == "__main__":
                 topic_details.sort(key=lambda x: x[1] if isinstance(x[1], float) else 0, reverse=True)
 
                 log_with_timestamp(f"{'Topic'.ljust(87)} | {'Bandwidth'.rjust(14)} | {'Frequency'.rjust(9)} | {'Delay'.rjust(8)}")
-                print('-' * 140)
+                print('-' * 155)
                 for details in topic_details:
                     bandwidth_display = f"{details[1]:>7.0f} Kbit/s" if isinstance(details[1], float) else details[1]
                     frequency_display = f"{details[2]:>6.1f} Hz" if isinstance(details[2], float) else details[2]
