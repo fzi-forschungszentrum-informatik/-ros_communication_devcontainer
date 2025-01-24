@@ -14,7 +14,7 @@ def publish_heartbeat():
         topic_list = [topic_list]
 
     # Publisher für alle Topics erstellen
-    publishers = [rospy.Publisher(topic, PoseStamped, queue_size=10) for topic in topic_list]
+    publishers = [rospy.Publisher(topic, PoseStamped, queue_size=1) for topic in topic_list]
     rate = rospy.Rate(1)  # 1 Hz Frequenz
 
     seq = 0  # Sequenznummer starten
