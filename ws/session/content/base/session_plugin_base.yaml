@@ -36,7 +36,9 @@ parameters:
   topic_monitor: false
 
   heartbeat: false
-  heartbeat_topics: 
+  heartbeat_topics:
+  heartbeat_delay_topic_1:
+  heartbeat_delay_topic_2:
 
 common:
   before_commands:
@@ -102,3 +104,9 @@ windows:
     splits:
       - commands:
         - /ws/session/content/base/heartbeat.py _topic_names:="${heartbeat_topics}"
+      - commands:
+        - if [ "${heartbeat_delay_topic_1}" == "None" ]; then exit; fi
+        - rostopic delay "${heartbeat_delay_topic_1}"
+      - commands:
+        - if [ "${heartbeat_delay_topic_2}" == "None" ]; then exit; fi
+        - rostopic delay "${heartbeat_delay_topic_2}"
