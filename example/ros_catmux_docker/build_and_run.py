@@ -40,7 +40,6 @@
 import argparse
 import os
 import subprocess
-import sys
 import shlex
 
 directory_of_this_script = os.path.dirname(os.path.realpath(__file__))
@@ -62,6 +61,7 @@ def main(container_name, catmux_session_file, additional_run_arguments="", catmu
         '--rm',
         "--network", "host",
         "--name", container_name,
+        "-u", f"{os.getuid()}:{os.getgid()}",
 
         # standard mounts
         "-v", f"{catmux_session_file}:/session.yaml",
