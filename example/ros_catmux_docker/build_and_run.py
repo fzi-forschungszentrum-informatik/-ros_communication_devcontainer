@@ -62,6 +62,8 @@ def main(container_name, catmux_session_file, additional_run_arguments="", catmu
         "--network", "host",
         "--name", container_name,
         "-u", f"{os.getuid()}:{os.getgid()}",
+        "-e", "ROS_HOME=/tmp/ros_home",
+        "-e", "ROS_LOG_DIR=/tmp/ros_logs",
 
         # standard mounts
         "-v", f"{catmux_session_file}:/session.yaml",
